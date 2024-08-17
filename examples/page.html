@@ -21,11 +21,11 @@
             @import "../dist/utilities-min.css";
 
             div {
-                color: var(--color-text-base-light, red);
-                border: 2px dotted #333;
+                color: var(--color-text-base-light--alt, red);
+                border: 2px dotted light-dark(#333, #fff);
             }
         </style>
-        <div class="margin-block--sm">This utility class is applied to a Web Component with shadow DOM</div>
+        <div class="margin-block--sm">This 'margin-block' utility class is applied to a Web Component with shadow DOM</div>
     </template>
 
     <script>
