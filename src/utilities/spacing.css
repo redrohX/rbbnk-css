@@ -1,0 +1,11 @@
+.margin-block--sm {
+  margin-block: var(--margin-block-sm, 0.8rem);
+}
+
+.margin-block--md {
+  margin-block: var(--margin-block-md, 1rem);
+}
+
+.margin-block--lg {
+  margin-block: var(--margin-block-lg, 1.25rem);
+}

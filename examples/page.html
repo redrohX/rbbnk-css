@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Project title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../dist/styles-min.css">
+    <!-- Optional: globally available utility classes -->
+    <link rel="stylesheet" href="../dist/utilities-min.css">
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    <p><em>CSS</em> is <strong>awesome</strong>!</p>
+
+    <div class="margin-block--lg">This div outside of the shadow DOM and uses a utility class to define block margin.</div>
+
+    <div id="host"></div>
+
+    <template id="my-element">
+        <style>
+            @import "../dist/utilities-min.css";
+
+            div {
+                color: var(--color-text-base-light, red);
+                border: 2px dotted #333;
+            }
+        </style>
+        <div class="margin-block--sm">This utility class is applied to a Web Component with shadow DOM</div>
+    </template>
+
+    <script>
+        const host = document.querySelector("#host");
+        const shadow = host.attachShadow({ mode: "open" });
+        const template = document.getElementById("my-element");
+
+        shadow.appendChild(template.content);
+    </script>
+  </body>
+</html>

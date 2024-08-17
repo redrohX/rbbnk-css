@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build":
+      "lightningcss --bundle --targets '>= 0.25%' --minify src/styles.css -o dist/styles-min.css; lightningcss --bundle --targets '>= 0.25%' --minify src/utilities.css -o dist/utilities-min.css"
+  },
+  "devDependencies": {
+    "lightningcss": "^1.26.0",
+    "lightningcss-cli": "^1.26.0"
+  }
+}

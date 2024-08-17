@@ -1,0 +1,13 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  /*
+    Default font-size is 16px
+    can be changed by configuring --font-size-base
+    Use rem by dividing amount of px by ten
+  */
+  font-size: var(--font-size-base, 1.6rem);
+  font-family: var(--font-family-primary, system-ui, sans-serif);
+}
