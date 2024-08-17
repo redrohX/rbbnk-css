@@ -33,7 +33,8 @@ The minified `styles-min.css` file should be included in the base template of th
 ```
 
 ### utlities.css
-There is also a `utilities-min.css` file which can be optionally included in the same base template, depending on if you're using Web Components in the form of Custom Elements with shadow DOM, or need to use utility classes on a more global level.
+Utility classes are HTML classes that can be used to change a certain styling aspect of an element by adding the class to it. Often used in places where it's not always possible or easy to write custom CSS.
+There is an optional `utilities-min.css` file that can be included in the same base template as `styles.css`, which makes it possible to use these utility classes on a global level. There are a multitude of utility classes that we can add: spacing, typography, layout, colors, etc.
 
 ```html
 <!doctype html>
@@ -52,7 +53,7 @@ There is also a `utilities-min.css` file which can be optionally included in the
 </html>
 ```
 
-If you use shadow DOM and want to use the utility classes in your Web Components, then you should import the file in the Web Component's `<style>` tag directly, so you can use the utility classes inside the shadow DOM of your Web Component. If the stylesheet has been loaded before from other sources, the browser will **not** download it again.
+If you use shadow DOM and want to use the utility classes inside your Web Components, then you should import the file directly in the Web Component's `<style>` tag. Note that if the stylesheet has been loaded before from other sources, the browser will **not** download it again.
 
 
 ```html
