@@ -7,33 +7,42 @@
     <link rel="stylesheet" href="../dist/styles-min.css">
     <!-- Optional: globally available utility classes -->
     <link rel="stylesheet" href="../dist/utilities-min.css">
+    <style>
+        :root {
+            --color-text-base-light--alt: hsl(300, 89%, 15%);
+            --color-text-base-dark--alt: hsl(295, 100%, 87%);
+        }
+    </style>
   </head>
   <body>
     <h1>Welcome</h1>
     <p><em>CSS</em> is <strong>awesome</strong>!</p>
 
-    <div class="margin-block--lg">This div outside of the shadow DOM and uses a utility class to define block margin.</div>
+    <div class="margin-block--lg">This div lives outside of the shadow DOM and uses a utility class to define block margin.</div>
 
-    <div id="host"></div>
-
-    <template id="my-element">
+    <template id="foo">
         <style>
             @import "../dist/utilities-min.css";
 
             div {
-                color: var(--color-text-base-light--alt, red);
+                color: light-dark(var(--color-text-base-light--alt, red), var(--color-text-base-dark--alt, #fff));
                 border: 2px dotted light-dark(#333, #fff);
             }
         </style>
-        <div class="margin-block--sm">This 'margin-block' utility class is applied to a Web Component with shadow DOM</div>
+        <div class="margin-block--sm">This 'margin-block' utility class is applied to a Custom Element with shadow DOM</div>
     </template>
 
-    <script>
-        const host = document.querySelector("#host");
-        const shadow = host.attachShadow({ mode: "open" });
-        const template = document.getElementById("my-element");
+    <foo-bar></foo-bar>
 
-        shadow.appendChild(template.content);
+    <script>
+        customElements.define('foo-bar', class extends HTMLElement {
+            constructor() {
+                super(); // Always call super first in constructor
+                const host = document.getElementById('foo').content;
+                const shadowRoot = this.attachShadow({ mode: 'closed'});
+                shadowRoot.appendChild(host.cloneNode(true));
+            }
+        });
     </script>
   </body>
 </html>
